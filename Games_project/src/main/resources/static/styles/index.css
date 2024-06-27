@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(#4B0082, 70%, #DDA0DD);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+fieldset {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: #483D8B;
+    width: 1000px;
+    padding: 30px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    border: 6px solid #5a4da7;
+}
+
+.login {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.bx {
+    font-size: 35px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+h2 {
+    margin: 10px;
+    font-weight: 700;
+    text-align: center;
+    color: #00FF00;
+}
+
+.table {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+table {
+    color: #fff;
+    font-size: 20px;
+    border-collapse: collapse;
+    height: 50%;
+    margin-bottom: 20px;
+}
+
+.tic-tac-toe {
+    color: #FFFF00;
+    border: 2px solid #c9c93c;
+}
+
+.tic-tac-toe th, .tic-tac-toe td, .tic-tac-toe tr {
+    border: 1px solid #c9c93c;
+}
+
+.memory-game {
+    color: #00FF00;
+    border: 2px solid #3cd03c;
+}
+
+.memory-game th, .memory-game td, .memory-game tr {
+    border: 1px solid #3cd03c;
+}
+
+.hangman {
+    color: #00FFFF;
+    border: 2px solid #37c4c4;
+}
+
+.hangman th, .hangman td, .hangman tr {
+    border: 1px solid #37c4c4;
+}
+
+caption {
+    font-size: 23px;
+    margin: 5px;
+    font-weight: 700;
+}
+
+th, td, tr {
+    padding: 8px 10px;
+    text-align: center;
+}

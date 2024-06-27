@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>THE BEST RESULTS</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <fieldset>
+
+        <form action="/login" class="login">
+            <button class='bx bxs-door-open'></button>
+        </form>
+
+        <table class="tic-tac-toe">
+            <caption>Tic Tac Toe</caption>
+            <thead>
+            <tr>
+                <th>Пользователи:</th>
+                <th>WINS (кол-во)</th>
+                <th>Соотношение в %</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user, iterStat : ${usersTicTacToe}">
+                <td th:text="${user}"></td>
+                <td th:text="${winsTicTacToe[iterStat.index]}"></td>
+                <td th:text="${winPercentagesTicTacToe[iterStat.index]}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="hangman">
+            <caption>Hangman</caption>
+            <thead>
+            <tr>
+                <th>Пользователи:</th>
+                <th>WINS (кол-во):</th>
+                <th>Соотношение в %</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user, iterStat : ${usersHangman}">
+                <td th:text="${user}"></td>
+                <td th:text="${winsHangman[iterStat.index]}"></td>
+                <td th:text="${winPercentagesHangman[iterStat.index]}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Memory Game</h2>
+        <div class="table">
+            <table class="memory-game">
+                <thead>
+                <tr>
+                    <th>Пользователи:</th>
+                    <th>WINS (кол-во)</th>
+                    <th>Соотношение в %</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user, iterStat : ${usersMemory}">
+                    <td th:text="${user}"></td>
+                    <td th:text="${winsMemory[iterStat.index]}"></td>
+                    <td th:text="${winPercentagesMemory[iterStat.index]}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="memory-game">
+                <thead>
+                <tr>
+                    <th>Пользователи:</th>
+                    <th>The best time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user, iterStat : ${usersBestTime}">
+                    <td th:text="${user}"></td>
+                    <td th:text="${times[iterStat.index]}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="memory-game">
+                <thead>
+                <tr>
+                    <th>Пользователи:</th>
+                    <th>The best moves</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user, iterStat : ${usersBestMoves}">
+                    <td th:text="${user}"></td>
+                    <td th:text="${moves[iterStat.index]}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </fieldset>
+</body>
+</html>

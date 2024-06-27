@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>PROFILE</title>
+    <link rel="stylesheet" href="/styles/profile.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <fieldset>
+        <legend th:if="${username != null}">[[${username}]]</legend>
+
+        <div class="btn">
+            <form action="/admin" class="admin" sec:authorize="hasRole('ROLE_ADMIN')">
+                <button class='bx bx-shield' ></button>
+            </form>
+
+            <form action="/logout" class="logout">
+                <button class='bx bx-log-out bx-flip-horizontal' ></button>
+            </form>
+        </div>
+
+        <div class="container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Наименование игры:</th>
+                    <th>WINS:</th>
+                    <th>LOSSES:</th>
+                    <th>DRAWS:</th>
+                    <th>The best time (sec):</th>
+                    <th>The best moves:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Tic Tac Toe</th>
+                    <td th:text="${winsTicTacToe}">[[${winsTicTacToe}]]</td>
+                    <td th:text="${lossesTicTacToe}">[[${lossesTicTacToe}]]</td>
+                    <td th:text="${drawsTicTacToe}">[[${drawsTicTacToe}]]</td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <th>Memory Game</th>
+                    <td th:text="${winsMemory}">[[${winsMemory}]]</td>
+                    <td th:text="${lossesMemory}">[[${lossesMemory}]]</td>
+                    <td> - </td>
+                    <td th:text="${bestTime}">[[${bestTime}]]</td>
+                    <td th:text="${bestMoves}">[[${bestMoves}]]</td>
+                </tr>
+                <tr>
+                    <th>Hangman</th>
+                    <td th:text="${winsHangman}">[[${winsHangman}]]</td>
+                    <td th:text="${lossesHangman}">[[${lossesHangman}]]</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="games">
+                <form action="/tic-tac-toe">
+                    <button class="btn1">Tic Tac Toe Game</button>
+                </form>
+
+                <form action="/memory-game">
+                    <button class="btn2">Memory Game</button>
+                </form>
+
+                <form action="/hangman">
+                    <button class="btn3">Hangman Game</button>
+                </form>
+            </div>
+        </div>
+
+    </fieldset>
+</body>
+</html>

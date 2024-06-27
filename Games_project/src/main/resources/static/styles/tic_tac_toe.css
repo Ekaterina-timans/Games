@@ -1,0 +1,261 @@
+body {
+    background: linear-gradient(#4B0082, 70%, #DDA0DD);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+fieldset {
+    background-color: #483D8B;
+    width: 800px;
+    height: 500px;
+    padding: 30px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    border: 6px solid #5a4da7;
+    justify-content: center;
+    align-items: center;
+}
+
+legend {
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    background-color: #9370DB;
+    padding: 6px 25px;
+    border-radius: 10px;
+}
+
+.profile {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.bx {
+    font-size: 35px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.select-box,
+.play-board,
+.result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.select-box {
+    background-color: #a697c3;
+    color: #fff;
+    padding: 20px 25px 25px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.select-box.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.select-box header {
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #5a4da7;
+}
+
+.select-box .title {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.select-box .options {
+    display: flex;
+    width: 100%;
+}
+
+.options button {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background: #62288c;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.options button:hover,
+.btn button:hover {
+    transform: scale(0.96);
+}
+
+.options button.playerX {
+    margin-right: 5px;
+}
+
+.options button.playerO {
+    margin-left: 5px;
+}
+
+.play-board {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.play-board.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.play-board .details {
+    background: #fff;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.play-board .players {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+}
+
+.players span {
+    position: relative;
+    z-index: 2;
+    color: #62288c;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+    transition: all 0.3 ease;
+}
+
+.players.active span:first-child {
+    color: #fff;
+}
+
+.players.active span:last-child {
+    color: #62288c;
+}
+
+.players span:first-child {
+    color: #fff;
+}
+
+.players .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #62288c;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+.players.active span:first-child {
+    color: #62288c;
+}
+
+.players.active span:nth-child(2) {
+    color: #fff;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+.play-area {
+    margin-top: 20px;
+}
+
+.play-area section {
+    display: flex;
+    margin-bottom: 1px;
+}
+
+.play-area section span {
+    display: block;
+    margin: 2px;
+    height: 90px;
+    width: 90px;
+    background: #fff;
+    border-radius: 5px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 80px;
+    color: #62288c;
+}
+
+.result-box {
+    background: #a697c3;
+    color: #fff;
+    padding: 25px 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+    opacity: 0;
+    text-align: center;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.result-box.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box .won-text {
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}
+
+.result-box .won-text p {
+    font-weight: 600;
+    margin: 0 5px;
+}
+
+.result-box .btn {
+    width: 100%;
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.btn button {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    background: #62288c;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}

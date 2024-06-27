@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MEMORY GAME</title>
+    <link rel="stylesheet" href="/styles/memory_game.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <fieldset>
+      <legend th:if="${username != null}">[[${username}]]</legend>
+
+      <form action="/profile" class="profile">
+         <button class='bx bx-left-arrow-alt' ></button>
+      </form>
+
+      <div class="wrapper">
+          <div class="stats-container">
+              <p>Moves Count: <span id="moves-count">0</span></p>
+              <p>Time: <span id="time">60</span> seconds</p>
+          </div>
+          <div class="game"></div>
+          <div id="controls-container" class="controls-container hide">
+              <p id="result"></p>
+              <button id="start" class="btn">Start Game</button>
+          </div>
+      </div>
+
+        <script th:src="@{/scripts/memory_game.js}"></script>
+    </fieldset>
+</body>
+</html>

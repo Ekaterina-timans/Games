@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN PANEL</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <fieldset>
+
+        <div class="panel">
+            <form action="/profile" class="arrow">
+                <button class='bx bx-left-arrow-alt'></button>
+            </form>
+            <form class="search" action="/admin/search" method="get">
+                <input type="text" placeholder="Искать..." name="searchUsername">
+                <button type="submit" class='bx bx-search'></button>
+            </form>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Пользователи:</th>
+                <th>Удаление пользователя</th>
+                <th>Просмотр списка игр</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="username : ${usernames}">
+                <td th:text="${username}"></td>
+                <td>
+                    <form th:action="@{/admin/delete/{username}(username=${username})}" method="post" class="delete">
+                        <button type="submit" class='bx bxs-user-x'></button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/games}" method="get" class="games">
+                        <input type="hidden" name="username" th:value="${username}" />
+                        <button type="submit" class='bx bx-detail'></button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">Всего пользователей: <span th:text="${totalUsers}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,149 @@
+body {
+    background: linear-gradient(#4B0082, 70%, #DDA0DD);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+fieldset {
+    background-color: #483D8B;
+    width: 800px;
+    height: 570px;
+    padding: 30px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    border: 6px solid #5a4da7;
+    justify-content: center;
+    align-items: center;
+}
+
+legend {
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    background-color: #9370DB;
+    padding: 6px 25px;
+    border-radius: 10px;
+}
+
+.profile {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.bx {
+    font-size: 35px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.wrapper {
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    background: #a697c3;
+    padding: 20px 60px;
+    border-radius: 0.6em;
+    transform: translate(22%, -22%);
+    max-height: 520px;
+}
+
+.game {
+    width: 430px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background: #fff;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.item.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #62288c;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.boxOpen::after,
+.boxMatch::after {
+    transform: rotateY(180deg);
+}
+.stats-container {
+    text-align: right;
+    margin-bottom: 1.2em;
+    font-size: 17px;
+}
+
+.stats-container span {
+    font-weight: 600;
+}
+
+.controls-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0.6em;
+    background-color: #a697c3;
+    color: #fff;
+}
+button {
+    border: none;
+    border-radius: 0.3em;
+    padding: 1em 1.5em;
+    cursor: pointer;
+}
+.controls-container button {
+    font-size: 1.3em;
+    box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
+    background: #62288c;
+    color: #fff;
+}
+#result {
+    text-align: center;
+}
+
+#result h2 {
+    font-size: 2.5em;
+}
+
+#result h4 {
+    font-size: 1.8em;
+    margin: 0.6em 0 1em 0;
+}
+
+.hide {
+    display: none;
+}
+

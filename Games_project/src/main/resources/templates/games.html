@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>GAME HISTORY</title>
+    <link rel="stylesheet" href="/styles/games.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <fieldset>
+
+        <div class="panel">
+            <form action="/admin" class="admin">
+                <button class='bx bx-left-arrow-alt'></button>
+            </form>
+            <div class="dropdown">
+                <input type="text" class="textBox" placeholder="Select game" readonly/>
+                <input type="hidden" id="username" th:value="${username}" />
+                <div class="option">
+                    <div onclick="showGamesByGame('Tic Tac Toe')">Tic Tac Toe</div>
+                    <div onclick="showGamesByGame('Memory Game')">Memory Game</div>
+                    <div onclick="showGamesByGame('Hangman')">Hangman</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <caption th:text="${username}">[[${username}]]</caption>
+            <thead>
+            <tr>
+                <th>Game</th>
+                <th>Result</th>
+                <th>Time</th>
+                <th>Moves</th>
+                <th>Удаление игры</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="game : ${games}">
+                <td th:text="${game.name}"></td>
+                <td th:text="${game.result}"></td>
+                <td th:text="${game.time}"></td>
+                <td th:text="${game.moves}"></td>
+                <td>
+                    <form th:action="@{/games/delete}" method="post" class="delete">
+                        <input type="hidden" name="id" th:value="${game.id}" />
+                        <input type="hidden" name="username" th:value="${username}" />
+                        <button type="submit" class='bx bx-trash'></button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">Всего пройдено игр: <span th:text="${totalGames}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <script th:src="@{/scripts/games.js}"></script>
+    </fieldset>
+</body>
+</html>

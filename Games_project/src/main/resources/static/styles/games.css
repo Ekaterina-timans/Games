@@ -1,0 +1,129 @@
+body {
+    background: linear-gradient(#4B0082, 70%, #DDA0DD);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+fieldset {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: #483D8B;
+    width: 1000px;
+    padding: 30px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    border: 6px solid #5a4da7;
+}
+
+.panel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bx {
+    font-size: 35px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.admin:hover,
+.delete:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.dropdown {
+    position: relative;
+    width: 20%;
+    height: 50px;
+    font-size: 18px;
+}
+
+.dropdown::before {
+    content: '';
+    position: absolute;
+    right: 1px;
+    top: 15px;
+    z-index: 10000;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #333;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.dropdown.active::before {
+    top: 22px;
+    transform: rotate(-225deg);
+}
+
+.dropdown input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: #fff;
+    border: none;
+    outline: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 1px 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.dropdown .option {
+    position: absolute;
+    color: #4B0082;
+    top: 70px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.dropdown.active .option {
+    display: block;
+
+}
+
+.dropdown .option div {
+    cursor: pointer;
+    padding: 12px 20px;
+}
+
+.dropdown .option div:hover {
+    background: #a697c3;
+}
+
+table {
+    color: #fff;
+    font-size: 20px;
+    border-collapse: collapse;
+    border: 2px solid #5a4da7;
+    height: 70%;
+    width: 60%;
+    margin: auto 225px auto auto;
+}
+
+caption {
+    font-size: 25px;
+    margin: 15px;
+    font-weight: 700;
+}
+
+th, td, tr {
+    border: 1px solid #5a4da7;
+    padding: 8px 10px;
+    text-align: center;
+}
